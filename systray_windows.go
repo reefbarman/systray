@@ -708,6 +708,14 @@ func addSeparator(id int32) {
 	}
 }
 
+func hideSeparator(id int32) {
+	err := wt.hideMenuItem(id)
+	if err != nil {
+		log.Errorf("Unable to hideMenuItem: %v", err)
+		return
+	}
+}
+
 func hideMenuItem(item *MenuItem) {
 	err := wt.hideMenuItem(item.id)
 	if err != nil {
