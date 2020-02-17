@@ -1,11 +1,11 @@
 // +build windows
 
-package winsystray
+package systray
 
 import (
+	"github.com/reefbarman/systray/win32"
+	"github.com/reefbarman/systray/wintray"
 	"unsafe"
-	"winsystray/win32"
-	"winsystray/wintray"
 
 	"golang.org/x/sys/windows"
 )

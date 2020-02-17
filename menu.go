@@ -1,8 +1,8 @@
-package winsystray
+package systray
 
 import (
+	"github.com/reefbarman/systray/interfaces"
 	"sync/atomic"
-	"winsystray/interfaces"
 )
 
 // Menu represents the top level or sub menus of a tray application

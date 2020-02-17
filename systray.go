@@ -1,4 +1,4 @@
-package winsystray
+package systray
 
 import (
 	"crypto/md5"
@@ -19,7 +19,7 @@ var (
 
 	currentID = int32(-1)
 	menuItems = make(map[int32]*MenuItem)
-	log       = golog.LoggerFor("winsystray")
+	log       = golog.LoggerFor("systray")
 
 	trayMenu      *Menu
 	menuItemsLock sync.RWMutex

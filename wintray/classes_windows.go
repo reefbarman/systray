@@ -2,7 +2,8 @@ package wintray
 
 import (
 	"unsafe"
-	"winsystray/win32"
+
+	"github.com/reefbarman/systray/win32"
 
 	"golang.org/x/sys/windows"
 )

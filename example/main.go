@@ -2,33 +2,34 @@ package main
 
 import (
 	"fmt"
-	"winsystray"
-	"winsystray/example/icon"
+
+	"github.com/reefbarman/systray"
+	"github.com/reefbarman/systray/example/icon"
 
 	"github.com/sqweek/dialog"
 )
 
 func main() {
-	winsystray.Run(func() {
-		winsystray.SetIcon(icon.Data)
-		winsystray.SetTooltip("This here is an example")
-		subMenu := winsystray.AddSubMenuItem("Sub Menu")
+	systray.Run(func() {
+		systray.SetIcon(icon.Data)
+		systray.SetTooltip("This here is an example")
+		subMenu := systray.AddSubMenuItem("Sub Menu")
 		if subMenu != nil {
-			subMenu.AddMenuItem("Click Me", func(item *winsystray.MenuItem) {
+			subMenu.AddMenuItem("Click Me", func(item *systray.MenuItem) {
 				dialog.Message("%s", "Do you want to continue?").Title("Are you sure?").YesNo()
 			})
 
 			subMenu.AddSeperator()
 
-			subMenu.AddMenuItem("Checkable", func(checkable *winsystray.MenuItem) {
+			subMenu.AddMenuItem("Checkable", func(checkable *systray.MenuItem) {
 				checkable.ToogleChecked()
 			})
 
-			disable := subMenu.AddMenuItem("Click to Disable", func(disable *winsystray.MenuItem) {
+			disable := subMenu.AddMenuItem("Click to Disable", func(disable *systray.MenuItem) {
 				disable.ToggleDisabled()
 			})
 
-			subMenu.AddMenuItem("Click to Disable", func(toggle *winsystray.MenuItem) {
+			subMenu.AddMenuItem("Click to Disable", func(toggle *systray.MenuItem) {
 				disable.ToggleDisabled()
 
 				if disable.IsDisabled() {
@@ -40,27 +41,27 @@ func main() {
 
 			anotherSubMenu := subMenu.AddSubMenuItem("Another SubMenu")
 			if anotherSubMenu != nil {
-				anotherSubMenu.AddMenuItem("Click Away", func(item *winsystray.MenuItem) {
+				anotherSubMenu.AddMenuItem("Click Away", func(item *systray.MenuItem) {
 					fmt.Println("You clicked!")
 				})
 			}
 		}
 
-		winsystray.AddMenuItem("Checkable", func(checkable *winsystray.MenuItem) {
+		systray.AddMenuItem("Checkable", func(checkable *systray.MenuItem) {
 			checkable.ToogleChecked()
 		})
 
-		winsystray.AddMenuItem("Click to Disable", func(disable *winsystray.MenuItem) {
+		systray.AddMenuItem("Click to Disable", func(disable *systray.MenuItem) {
 			disable.ToggleDisabled()
 		})
 
-		winsystray.AddSeperator()
+		systray.AddSeperator()
 
-		winsystray.AddMenuItem("Exit", func(item *winsystray.MenuItem) {
-			winsystray.Quit()
+		systray.AddMenuItem("Exit", func(item *systray.MenuItem) {
+			systray.Quit()
 		})
 
-		<-winsystray.OnExitChan
+		<-systray.OnExitChan
 
 		fmt.Println("app exiting")
 	})

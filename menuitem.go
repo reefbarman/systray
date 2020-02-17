@@ -1,4 +1,4 @@
-package winsystray
+package systray
 
 // MenuItem represents an item displayed in the root or a sub menu of the tray application
 // It can be disabled, checked or have the title updated

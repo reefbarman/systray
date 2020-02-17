@@ -1,4 +1,4 @@
-module winsystray
+module github.com/reefbarman/systray
 
 go 1.13
 
