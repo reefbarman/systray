@@ -19,7 +19,7 @@ func main() {
 				dialog.Message("%s", "Do you want to continue?").Title("Are you sure?").YesNo()
 			})
 
-			subMenu.AddSeperator()
+			subMenu.AddSeparator()
 
 			subMenu.AddMenuItem("Checkable", func(checkable *systray.MenuItem) {
 				checkable.ToogleChecked()
@@ -55,7 +55,7 @@ func main() {
 			disable.ToggleDisabled()
 		})
 
-		systray.AddSeperator()
+		systray.AddSeparator()
 
 		systray.AddMenuItem("Exit", func(item *systray.MenuItem) {
 			systray.Quit()

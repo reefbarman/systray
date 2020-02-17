@@ -72,8 +72,8 @@ func SetTooltip(tooltip string) {
 	setTooltip(tooltip)
 }
 
-// AddSeperator will add a seperator between items in the tray menu
-func AddSeperator() {
+// AddSeparator will add a seperator between items in the tray menu
+func AddSeparator() {
 	id := atomic.AddInt32(&currentID, 1)
 	menuItem := &MenuItem{
 		id:     id,

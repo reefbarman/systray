@@ -1,8 +1,9 @@
 package systray
 
 import (
-	"github.com/reefbarman/systray/interfaces"
 	"sync/atomic"
+
+	"github.com/reefbarman/systray/interfaces"
 )
 
 // Menu represents the top level or sub menus of a tray application
@@ -11,8 +12,8 @@ type Menu struct {
 	items  []interfaces.MenuItem
 }
 
-// AddSeperator will add a seperator to the menu
-func (m *Menu) AddSeperator() {
+// AddSeparator will add a seperator to the menu
+func (m *Menu) AddSeparator() {
 	id := atomic.AddInt32(&currentID, 1)
 	menuItem := &MenuItem{
 		id:     id,
